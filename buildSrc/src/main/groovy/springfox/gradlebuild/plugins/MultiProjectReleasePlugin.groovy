@@ -57,8 +57,8 @@ class MultiProjectReleasePlugin implements Plugin<Project> {
     BuildInfo versioningInfo = createBuildInfo(project, versioningStrategy)
     releaseTask = project.task(ReleaseTask.TASK_NAME, type: ReleaseTask)
     bumpAndTagTask = project.task(BumpAndTagTask.TASK_NAME, type: BumpAndTagTask)
-    credentialCheck = project.task(CheckRequiredSecretsTask.TASK_NAME, type: CheckRequiredSecretsTask)
-    checkCleanWorkspaceTask = project.task(CheckCleanWorkspaceTask.TASK_NAME, type: CheckCleanWorkspaceTask)
+    //credentialCheck = project.task(CheckRequiredSecretsTask.TASK_NAME, type: CheckRequiredSecretsTask)
+    //checkCleanWorkspaceTask = project.task(CheckCleanWorkspaceTask.TASK_NAME, type: CheckCleanWorkspaceTask)
     //checkGitBranchTask = project.task(CheckGitBranchTask.TASK_NAME, type: CheckGitBranchTask)
     checkWorkspaceTask = project.task('checkWorkspace', type: IntermediaryTask)
 
@@ -78,8 +78,8 @@ class MultiProjectReleasePlugin implements Plugin<Project> {
 
   def configureGlobalTasks() {
     checkWorkspaceTask.dependsOn showPublishInfo
-    checkWorkspaceTask.dependsOn checkCleanWorkspaceTask
-    checkWorkspaceTask.dependsOn credentialCheck
+    //checkWorkspaceTask.dependsOn checkCleanWorkspaceTask
+    //checkWorkspaceTask.dependsOn credentialCheck
   }
 
   def configureSnapshotTaskGraph(Project project) {
