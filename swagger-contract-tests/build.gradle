@@ -56,8 +56,8 @@ dependencies {
   compile project(':springfox-swagger1')
   compile project(':springfox-swagger2')
   compile project(':springfox-data-rest')
-  compile project(':springfox-petstore')
-  compile project(':springfox-bean-validators')
+  //compile project(':springfox-petstore')
+  //compile project(':springfox-bean-validators')
   compile project(':springfox-spring-web').sourceSets.test.output
   compile project(':springfox-spring-webmvc').sourceSets.test.output
 

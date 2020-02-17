@@ -101,8 +101,9 @@ ext {
 }
 
 apply plugin: 'maven-publish'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: "com.jfrog.artifactory"
+apply plugin: 'com.bmuschko.nexus'
+//apply plugin: 'com.jfrog.bintray'
+//apply plugin: "com.jfrog.artifactory"
 
 jar {
   manifest {
@@ -125,15 +126,16 @@ task packageSources(type: Jar) {
   from sourceSets.main.allSource
   from generatedSources
 }
-
+/*
 task javadocJar(type: Jar, dependsOn: javadoc) {
   classifier = 'javadoc'
   from javadoc.destinationDir
 }
+ */
 
 artifacts {
   archives packageSources
-  archives javadocJar
+  //archives javadocJar
 }
 
 if (JavaVersion.current().isJava8Compatible()) {
@@ -148,12 +150,12 @@ publishing {
       from components.java
       pom.withXml springfoxPomConfig
       artifact packageSources
-      artifact javadocJar
+    //  artifact javadocJar
     }
   }
 }
 
-
+/*
 artifactory {
   contextUrl = 'https://oss.jfrog.org'
   resolve {
@@ -208,5 +210,10 @@ bintray {
       }
     }
   }
+}
+*/
+nexus {
+    sign = true
+    repositoryUrl = 'https://nexus.softindustry.de/'    
 }
 

@@ -72,7 +72,7 @@ class MultiProjectReleasePlugin implements Plugin<Project> {
 
     configureVersion(project, versioningInfo)
     configureGlobalTasks()
-    configureSnapshotTaskGraph(project)
+    //configureSnapshotTaskGraph(project)
     configureReleaseTaskGraph(project)
   }
 
