@@ -59,7 +59,7 @@ class MultiProjectReleasePlugin implements Plugin<Project> {
     bumpAndTagTask = project.task(BumpAndTagTask.TASK_NAME, type: BumpAndTagTask)
     credentialCheck = project.task(CheckRequiredSecretsTask.TASK_NAME, type: CheckRequiredSecretsTask)
     checkCleanWorkspaceTask = project.task(CheckCleanWorkspaceTask.TASK_NAME, type: CheckCleanWorkspaceTask)
-    checkGitBranchTask = project.task(CheckGitBranchTask.TASK_NAME, type: CheckGitBranchTask)
+    //checkGitBranchTask = project.task(CheckGitBranchTask.TASK_NAME, type: CheckGitBranchTask)
     checkWorkspaceTask = project.task('checkWorkspace', type: IntermediaryTask)
 
     showPublishInfo = project.task('showPublishInfo') {
@@ -99,7 +99,7 @@ class MultiProjectReleasePlugin implements Plugin<Project> {
     def publishTask = project.task('publishRelease', type: IntermediaryTask)
 
     publishTask.dependsOn checkWorkspaceTask
-    publishTask.dependsOn checkGitBranchTask
+   // publishTask.dependsOn checkGitBranchTask
 
     project.afterEvaluate { evaluatedProject ->
       def javaCheckTasks = evaluatedProject.getTasksByName('check', true)
