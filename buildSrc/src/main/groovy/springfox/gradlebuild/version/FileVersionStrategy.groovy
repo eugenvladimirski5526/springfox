@@ -41,15 +41,16 @@ class FileVersionStrategy implements VersioningStrategy, GitTaggingSupport, GitV
   @Override
   void persist(Project project, BuildInfo buildInfo) {
     if (buildInfo.isReleaseBuild) {
-      createAnnotatedTag(project, buildInfo)
-      updateVersionFile(project, buildInfo)
-      commitToRepository(project, buildInfo)
+      //createAnnotatedTag(project, buildInfo)
+      //updateVersionFile(project, buildInfo)
+      //commitToRepository(project, buildInfo)
     } else {
       project.logger.warn("[RELEASE] Should never be called when its a snapshot build")
     }
   }
 
   def commitToRepository(Project project, BuildInfo buildInfo) {
+    
     def commitChanges = """git commit -am \
  'Preparing for next version ${buildInfo.nextVersion}.'"""
     if (buildInfo.dryRun) {
@@ -67,6 +68,7 @@ class FileVersionStrategy implements VersioningStrategy, GitTaggingSupport, GitV
     } else {
       project.logger.lifecycle("[RELEASE] $out")
     }
+    
   }
 
   def updateVersionFile(project, buildInfo) {

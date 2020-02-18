@@ -36,9 +36,11 @@ class ReleaseTask extends DefaultTask {
     if (buildInfo.dryRun) {
       project.logger.warn("[RELEASE] [DRYRUN] Would have executed -> git push origin ${buildInfo.releaseTag}")
     } else {
+      /*
       project.exec {
         commandLine 'git', 'push', "origin", "${buildInfo.releaseTag}"
       }.assertNormalExitValue()
+      */
     }
   }
 }
