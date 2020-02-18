@@ -48,5 +48,5 @@ limitations under the License.
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fspringfox%2Fspringfox.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fspringfox%2Fspringfox?ref=badge_large)
 
 ## Nexus Deploy
-./gradlew release -Prelease.useAutomaticVersion=true -Prelease.releaseVersion=3.0.0-SWT
-./gradlew clean build release -PreleaseType=PATCH
+Version ändern in FileVersionStrategy
+./gradlew clean build release

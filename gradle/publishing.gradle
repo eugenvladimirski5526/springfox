@@ -213,7 +213,7 @@ bintray {
 }
 */
 nexus {
-    sign = true
+    sign = false
     repositoryUrl = 'https://nexus.softindustry.de/repository/maven-releases/'
     snapshotRepositoryUrl = 'https://nexus.softindustry.de/repository/maven-snapshots/'
 }

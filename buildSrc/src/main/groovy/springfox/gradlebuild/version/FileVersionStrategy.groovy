@@ -20,10 +20,10 @@ class FileVersionStrategy implements VersioningStrategy, GitTaggingSupport, GitV
       def versionLine = stream.readLines().first()
       def (major, minor, patch) = versionLine.replace(buildNumberSuffix, "").split("\\.")
       version = new SemanticVersion(
-          major.toInteger(),
-          minor.toInteger(),
-          patch.toInteger(),
-          isReleaseBuild ? "" : buildNumberSuffix)
+          3,
+          0,
+          0,
+          "-SWT")
     }
     version
   }
@@ -42,7 +42,7 @@ class FileVersionStrategy implements VersioningStrategy, GitTaggingSupport, GitV
   void persist(Project project, BuildInfo buildInfo) {
     if (buildInfo.isReleaseBuild) {
       //createAnnotatedTag(project, buildInfo)
-      //updateVersionFile(project, buildInfo)
+      updateVersionFile(project, buildInfo)
       //commitToRepository(project, buildInfo)
     } else {
       project.logger.warn("[RELEASE] Should never be called when its a snapshot build")
