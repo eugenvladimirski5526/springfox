@@ -214,7 +214,7 @@ bintray {
 */
 nexus {
     sign = true
-    repositoryUrl = 'https://nexus.softindustry.de/'
-    snapshotRepositoryUrl = 'https://nexus.softindustry.de/'
+    repositoryUrl = 'https://nexus.softindustry.de/repository/maven-releases/'
+    snapshotRepositoryUrl = 'https://nexus.softindustry.de/repository/maven-snapshots/'
 }
 
