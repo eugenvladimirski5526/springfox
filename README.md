@@ -50,3 +50,9 @@ limitations under the License.
 ## Nexus Deploy
 Version ändern in FileVersionStrategy
 ./gradlew clean build release
+
+Installiert in locale Repository ein neuen Release der in FileVersionStrategy festgelegt worden ist
+./gradlew clean build install
+
+Schiebt die Artifacte ins Repository
+./gradlew uploadArchives
